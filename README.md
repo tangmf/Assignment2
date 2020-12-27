@@ -95,9 +95,10 @@ This page is where users can find out information like carpark id, development, 
 ## [5] Credits
 
 ### Acknowledgements
-* LTA DataMall Api: https://www.mytransport.sg/content/mytransport/home/dataMall.html
+* LTA DataMall Api: https://www.mytransport.sg/content/mytransport/home/dataMall.html, https://www.mytransport.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf
 * Mapbox Api: https://www.mapbox.com/
 * w3Schools: https://www.w3schools.com/js/default.asp
-* mapbox tutorial: https://www.youtube.com/watch?v=OySigNMXOZU
+* BootStrap: https://getbootstrap.com/
+* Mapbox youtube tutorial: https://www.youtube.com/watch?v=OySigNMXOZU
 * Past CAs: https://repl.it/@mingfeng/wk08-ca-randomuser#script.js, https://repl.it/@mingfeng/wk08-simple-bootstrap#index.html
 
