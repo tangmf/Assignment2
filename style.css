@@ -1,0 +1,64 @@
+
+.title{
+    font-family:  Arial, Helvetica, sans-serif;
+  }
+  
+  .marker {
+    background-image: url('mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  #currentlocation{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  section{
+    padding: 3% 3%;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+  }
+  th {
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+  #parkingmap{
+    margin-top: 200px;
+  }
+  
+  .addMore{
+  
+    border: none;
+    width: 32px;
+    height: 32px;
+    background-color: #eee;
+    cursor: pointer;
+  }
+  .addMore:hover{
+    border: 1px solid #888;
+    background-color: #ddd;
+  }
+  
+  #info{
+    margin-top: 3%;
+  
+  }
+  
+  #info button{
+    margin-right: 1%;
+  }
+  
