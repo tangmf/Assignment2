@@ -33,12 +33,11 @@ function setupMap(center) {
     accessToken: mapboxgl.accessToken
   })
 
-
+  map.addControl(directions, 'top-left');
 
   var marker = new mapboxgl.Marker()
-  .setLngLat(center)
-  .addTo(map);
-
+.setLngLat(center)
+.addTo(map);
 
 }
 
