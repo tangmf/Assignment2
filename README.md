@@ -2,6 +2,7 @@
 
 ### Tang Ming Feng S10185023E ID Assignment 2
 ### This is the documentation for my ID Assignment 2 website. The website is a map website that finds out directions from point a to point b and helps users find a place to park nearby based on their current location. The users will need to allow the website to access their current location in order for it to work.
+Note: derpsnow is also my account which is signed in on visual studio code
 
 ## Table of Contents
 - [1] Purpose
