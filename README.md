@@ -14,27 +14,34 @@
 ## [1] Purpose
 
 ### User audience:
-People looking for places to go or looking for parking near them.
+People looking for directions or looking for parking near them.
 
 ### Intent:
-Get users to find a place to explore or find a place to park nearby.
+Get users to find directions to a destination or find a place to park nearby.
 
 ### Purpose:
 Make it easier for people to find parking.
 
 ### Who the website is catering for and value it provides for users:
+The website is catering for people who use cars. The value it provides is to help them find parking more easily.
 
 
 ### What is the website catering for?
+The website caters for people to find parking nearby.
 
 
 ## [2] Design Process
 
-
+### Link to repl.it
+[repl.it](https://assignment2.mingfeng.repl.co/)
 ### Link to wireframe
 [wireframe]()
 
 ### User stories
+
+* I want to find a close place to park
+* I want to find the directions to the car park
+* I want to find out how much available lots there are
 
 
 ## [3] Features
@@ -42,6 +49,9 @@ Make it easier for people to find parking.
 ### All pages
 * All pages have a responsive navigation bar, with its position fixed at the top of the screen.
 * All pages are responsive.
+### Map page (index.html)
+### Find parking page (parking.html)
+### Search page (search.html)
 
 
 
@@ -56,9 +66,11 @@ Make it easier for people to find parking.
 ### Content
 
 
+
 ### Media
 
 
 ### Acknowledgements
-
+* Mapbox tutorial: https://www.youtube.com/watch?v=OySigNMXOZU
+* w3Schools
 
