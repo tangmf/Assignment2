@@ -14,26 +14,24 @@
 ## [1] Purpose
 
 ### User audience:
-Car drivers.
+Car drivers or people looking for direcions to a destination.
 
 ### Intent:
-Help drivers find a nearby place to park.
+Help drivers find a nearby place to park, give the driver the directions to the destinated car park, give directions from point a to point b
 
 ### Purpose:
-Make finding a place to park easier.
+Make finding a place to park easier, and make it easier to travel from point a to point b
 
 ### Who the website is catering for and value it provides for users:
 Car drivers, makes finding parking easier, they can also find out the available lots left for each car park.
+People who need directions, they can enter the destination into the map and will recieve directions to the destination from their current location.
 
 ### What is the website catering for?
-The website is catering a centralized place to distribute and sell content from K/DA.
+The website is catering for a place where drivers can access information about car parks, and provide directions.
 
 ## [2] Design Process
 
-This website is made to promote K/DA's content, and act as a centralized place to distribute and sell content from K/DA to fans or going-to-be fans.
-Hence, the website needs to have easily accessible content like music videos, music and merchandise, as well as match the flashy style of the band's brand.
-
-I wanted the design of the website to be user friendly, and have the content (music) to be easily accessible for the user, and so the first step was to have a nice and simple navigation bar. For the layout of the website, I made it so that each page had sections, spaced away from one another to clearly distinguish them, and I wanted the text to be easy to read, and so went with a white text and black background. The font I chose, BarlowCondensed, makes reading the text easy to read as well, and gives the website texts a clean look.
+The website is similar to google maps, but more centralized around parking, where users can access car park information from all around Singapore, and get directions from point a to point b.
 
 ### Link to repl.it
 [repl.it](https://assignment2.mingfeng.repl.co/)
@@ -43,17 +41,27 @@ I wanted the design of the website to be user friendly, and have the content (mu
 ### User stories
 
 * As a car driver, I need to find a place to park. Using the web application, I will allow the website to know my location, and from my location, the website will find out the nearest places to park. I can then copy the location of the car park I would like to park in, and paste it on the map as my destination. I can then click on my current location, which will generate a route between one location to the other. I can then have the directions to go to the car park.
+
+* As a car driver, I would like to find out information about car parks in Singapore. I can go the Search Page and enter in the keyword of the Car Park I want to find out about . The website will then show the details of the car park.
+
 ## [3] Features
 
 ### All pages
-* All pages have a responsive navigation bar, with its position fixed at the top of the screen.
-* All pages have a gif background of the main singer of K/DA, Ahri, which gives the website more dynamism and style.
+* All pages have a responsive navigation bar made using bootstrap.
 * All pages are responsive.
 
 ### Map page (index.html)
 * mapbox map
 * navigation control
-* 
+* directions
+
+### Find parking page (parking.html)
+* get current location
+* find nearest car parks arranged in table form
+
+### Search page (search.html)
+* search for car park by development
+* e.g. enter in "yishun" and all car parks with yishun in their name will be displayed on a table.
 
 ## [4] Technologies used
 * html 
