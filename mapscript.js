@@ -8,12 +8,7 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
 function successLocation(position) {
   console.log(position)
   setupMap([position.coords.longitude, position.coords.latitude]);
-
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
-
-  $("#currentlat").text("Latitude: " + `${lat}`);
-  $("#currentlong").text("Longitude: " + `${long}`);
+  
 
 }
 
@@ -38,6 +33,8 @@ function setupMap(center) {
   var marker = new mapboxgl.Marker()
 .setLngLat(center)
 .addTo(map);
+
+
 
 }
 

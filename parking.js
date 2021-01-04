@@ -1,55 +1,42 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoidGFuZ21pbmdmZW5nIiwiYSI6ImNrajQyazEwYzBpeWkyemxseDB6MXk2d24ifQ.I36uKUemWbTsCzrKk_SmHQ';
 
-navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
-  {
-    enableHighAccuracy: true
-  })
 
-function successLocation(position) {
-  console.log(position)
-  setupMap([position.coords.longitude, position.coords.latitude]);
 
-  let lat = position.coords.latitude;
-  let long = position.coords.longitude;
 
-  $("#currentlat").text(`${lat}`);
-  $("#currentlong").text(`${long}`);
+var myHeaders = new Headers();
+myHeaders.append("AccountKey", "4wI0kpClSgyt5mBKBfmEIQ==");
 
-}
+var raw = "";
 
-function errorLocation() { }
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
 
-function setupMap(center) {
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: center,
-    zoom: 15
-  })
-  const nav = new mapboxgl.NavigationControl();
-  map.addControl(nav);
-
-  var directions = new MapboxDirections({
-    accessToken: mapboxgl.accessToken
-  })
-
-  map.addControl(directions, 'top-left');
-
-  var marker = new mapboxgl.Marker()
-.setLngLat(center)
-.addTo(map);
-
-}
-
+fetch("http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2?", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 
 
 let url = "response.json";
 
 
 
+
 fetch(url)
   .then(response => response.json())
   .then(function (data) {
+
+    var slider = document.getElementById("range");
+    var output = document.getElementById("output");
+    output.innerHTML = slider.value + " deg"; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+      output.innerHTML = this.value + " deg";
+    }
     var locationlist = []
 
     var i;
@@ -83,8 +70,66 @@ fetch(url)
   
   
   
-
+  localStorage.setItem("locations", JSON.stringify(locationlist));
 
 })
 
+mapboxgl.accessToken = 'pk.eyJ1IjoidGFuZ21pbmdmZW5nIiwiYSI6ImNrajQyazEwYzBpeWkyemxseDB6MXk2d24ifQ.I36uKUemWbTsCzrKk_SmHQ';
 
+navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
+  {
+    enableHighAccuracy: true
+  })
+
+function successLocation(position) {
+  console.log(position)
+  setupMap([position.coords.longitude, position.coords.latitude]);
+  
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+
+  $("#currentlat").text(`${lat}`);
+  $("#currentlong").text(`${long}`);
+
+
+}
+
+function errorLocation() { }
+
+function setupMap(center) {
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: center,
+    zoom: 15
+  })
+  const nav = new mapboxgl.NavigationControl();
+  map.addControl(nav);
+
+  var directions = new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+  })
+
+  map.addControl(directions, 'top-left');
+
+  var marker = new mapboxgl.Marker()
+.setLngLat(center)
+.addTo(map);
+
+
+var storedLocations = JSON.parse(localStorage.getItem("locations"));
+
+let i = 0;
+for (i=0;i<storedLocations.length;i++){
+  storedLocations[i] = storedLocations[i].split(" ")
+  var marker = new mapboxgl.Marker()
+.setLngLat([storedLocations[i][1],storedLocations[i][0]])
+.addTo(map);
+}
+
+
+
+
+
+
+}
