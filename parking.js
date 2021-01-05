@@ -1,24 +1,5 @@
 
 
-
-var myHeaders = new Headers();
-myHeaders.append("AccountKey", "4wI0kpClSgyt5mBKBfmEIQ==");
-
-var raw = "";
-
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2?", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
-
 let url = "response.json";
 
 
@@ -31,7 +12,7 @@ function start(){
   .then(response => response.json())
   .then(function (data) {
     $("#result").empty()
-        $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
+    $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
 
     var slider = document.getElementById("range");
     var output = document.getElementById("output");
@@ -61,7 +42,7 @@ function start(){
         found = true;
 
 
-        locationlist.push(data.value[i].Location)
+        locationlist.push(data.value[i].Location + " " + data.value[i].CarParkID + " " + data.value[i].LotType + " " + data.value[i].AvailableLots)
 
         
         
@@ -97,7 +78,6 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
   })
 
 function successLocation(position) {
-  console.log(position)
   setupMap([position.coords.longitude, position.coords.latitude]);
   
   let lat = position.coords.latitude;
@@ -127,7 +107,7 @@ function setupMap(center) {
 
   map.addControl(directions, 'top-left');
 
-  var marker = new mapboxgl.Marker()
+  var marker = new mapboxgl.Marker({color: 'red'})
 .setLngLat(center)
 .addTo(map);
 
@@ -137,6 +117,10 @@ var storedLocations = JSON.parse(localStorage.getItem("locations"));
 let i = 0;
 for (i=0;i<storedLocations.length;i++){
   storedLocations[i] = storedLocations[i].split(" ")
+  var popup = new mapboxgl.Popup()
+  .setLngLat([storedLocations[i][1],storedLocations[i][0]])
+  .setHTML(`<h3>${storedLocations[i][2]}</h3><p style=\"text-align: Left;\"><u>Location:</u>${storedLocations[i][1]},${storedLocations[i][0]}<br><u>LotType:</u> ${storedLocations[i][3]}<br><u>Available Lots:</u> ${storedLocations[i][4]}`)
+  .addTo(map);
   var marker = new mapboxgl.Marker()
 .setLngLat([storedLocations[i][1],storedLocations[i][0]])
 .addTo(map);
