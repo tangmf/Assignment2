@@ -1,7 +1,6 @@
 
 
 
-
 var myHeaders = new Headers();
 myHeaders.append("AccountKey", "4wI0kpClSgyt5mBKBfmEIQ==");
 
@@ -25,9 +24,14 @@ let url = "response.json";
 
 
 
-fetch(url)
+function start(){
+
+  
+  fetch(url)
   .then(response => response.json())
   .then(function (data) {
+    $("#result").empty()
+        $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
 
     var slider = document.getElementById("range");
     var output = document.getElementById("output");
@@ -36,6 +40,8 @@ fetch(url)
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function() {
       output.innerHTML = this.value + " deg";
+      start();
+
     }
     var locationlist = []
 
@@ -47,9 +53,10 @@ fetch(url)
       let lat = location[0];
       let long = location[1];
 
-
-      if (Math.abs(lat - parseFloat($("#currentlat").text())) <= 0.02 && Math.abs(long - parseFloat($("#currentlong").text())) <= 0.02) {
-        console.log(JSON.stringify(data.value[i]))
+      let range = output.innerHTML;
+      let deg = range.split(" ")[0]/300;
+      if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg) {
+        
         $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long +"," + lat + "</td></tr>")
         found = true;
 
@@ -71,11 +78,19 @@ fetch(url)
   
   
   localStorage.setItem("locations", JSON.stringify(locationlist));
+  navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
+  {
+    enableHighAccuracy: true
+  })
 
 })
 
+}
+
+
 mapboxgl.accessToken = 'pk.eyJ1IjoidGFuZ21pbmdmZW5nIiwiYSI6ImNrajQyazEwYzBpeWkyemxseDB6MXk2d24ifQ.I36uKUemWbTsCzrKk_SmHQ';
 
+start();
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
   {
     enableHighAccuracy: true
@@ -126,10 +141,6 @@ for (i=0;i<storedLocations.length;i++){
 .setLngLat([storedLocations[i][1],storedLocations[i][0]])
 .addTo(map);
 }
-
-
-
-
 
 
 }
