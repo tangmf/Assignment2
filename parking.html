@@ -73,8 +73,18 @@
 
   <div id = "info">
   <h3>Nearest car parks</h3>
-  <h3>Range:<input type="range" id="range" name="range" min="1" max="5"</h3>
-  <h3 id = "output"></h3>
+  <div id = "range-settings">
+    <h3>Range:<input type="range" id="range" name="range" min="1" max="5"</h3>
+    <h3 id = "output"></h3>
+  </div>
+  <h3>Lot Types:</h3>
+  <div id = "lottype-settings">
+    <h3>C<input type = "checkbox" value = "c" id = "c" checked></h3>
+    <h3>Y<input type = "checkbox" value = "y" id = "y" checked></h3>
+    <h3>H<input type = "checkbox" value = "h" id = "h" checked></h3>
+    <h3>L<input type = "checkbox" value = "l" id = "l" checked></h3>
+  </div>
+  
   <button class="addMore" title = "Find the directions to a car park by copying the Location and pasting it onto the destination on the map">?</button>
   </div>
   <table id = "result" style= "width: 100%">
@@ -86,25 +96,19 @@
       <th>Location</th>
     </tr>
   </table>
+
+
   <!-- Mapbox -->
+  
   <div id='map' style='width: 50wh; height: 100vh;'></div>
+  
+  
 
   
   
   
   
   </section>
-
-
-      
-
-  
-  
-
-
-  
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

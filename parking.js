@@ -1,5 +1,4 @@
 
-
 let url = "response.json";
 
 
@@ -25,9 +24,23 @@ function start(){
 
     }
     var locationlist = []
+    var typelist = []
 
     var i;
     var found = false;
+
+    if (document.getElementById("c").checked){
+        typelist.push("C");
+      }
+      if (document.getElementById("l").checked){
+        typelist.push("L");
+      }
+      if (document.getElementById("y").checked){
+        typelist.push("Y");
+      }
+      if (document.getElementById("h").checked){
+        typelist.push("H");
+      }
     for(i=0;i<data.value.length;i++){
       let location = data.value[i].Location
       location = location.split(" ");
@@ -36,17 +49,33 @@ function start(){
 
       let range = output.innerHTML;
       let deg = range.split(" ")[0]/300;
-      if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg) {
+
+      
+      
+      
+      var lottype = document.getElementById("lottype-settings");
+      lottype.oninput = function() {
+        start();
+        
+
+      
+      
+      }
+      
+      
+      if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg && typelist.includes(data.value[i].LotType)) {
         
         $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long +"," + lat + "</td></tr>")
         found = true;
 
 
         locationlist.push(data.value[i].Location + " " + data.value[i].CarParkID + " " + data.value[i].LotType + " " + data.value[i].AvailableLots)
+        
 
         
         
       }
+      
 
       
 
@@ -55,7 +84,8 @@ function start(){
         $("#result").append("<tr><td>No carparks nearby</td></tr>")
         
       }
-  
+
+  var typelist = []
   
   
   localStorage.setItem("locations", JSON.stringify(locationlist));
