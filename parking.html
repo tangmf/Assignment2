@@ -70,24 +70,46 @@
     <h3 id = "currentlat">latitude</h3>
     
   </div>
-
-  <div id = "info">
-  <h3>Nearest car parks</h3>
-  <div id = "range-settings">
-    <h3>Range:<input type="range" id="range" name="range" min="1" max="5"</h3>
-    <h3 id = "output"></h3>
-  </div>
-  <h3>Lot Types:</h3>
-  <div id = "lottype-settings">
-    <h3>C<input type = "checkbox" value = "c" id = "c" checked></h3>
-    <h3>Y<input type = "checkbox" value = "y" id = "y" checked></h3>
-    <h3>H<input type = "checkbox" value = "h" id = "h" checked></h3>
-    <h3>L<input type = "checkbox" value = "l" id = "l" checked></h3>
-  </div>
   
-  <button class="addMore" title = "Find the directions to a car park by copying the Location and pasting it onto the destination on the map">?</button>
+  <div id = "info">
+      <!-- Range settings -->
+      <div id = "range-settings">
+        <h3>Range:<input type="range" id="range" name="range" min="1" max="5"</h3>
+        <h4 id = "output"></h4>
+      </div>
+
+      <!-- Lot type settings -->
+      <h3>Lot Types:</h3>
+      <div id = "lottype-settings">
+        <h4>C<input type = "checkbox" value = "c" id = "c" checked></h4>
+        <h4>Y<input type = "checkbox" value = "y" id = "y" checked></h4>
+        <h4>H<input type = "checkbox" value = "h" id = "h" checked></h4>
+        <h4>L<input type = "checkbox" value = "l" id = "l" checked></h4>
+      </div>
+
+      <!-- Availability settings -->
+      <h3>Status</h3>
+      <div id = "availability-settings">
+        <h4>All<input type = "radio" name = "availability" id = "all-availability" value = "all" checked></h4>
+        <h4>Available<input type = "radio" name = "availability" id = "available-availability" value = "available"></h4>
+      </div>
+
+
+      <!-- Search button -->
+      <button id = "search">Search</button>
+
+      <!-- Loading -->
+      <h3 id = "loading">Loading...</h3>
+
+
+      <!-- Help button -->
+      <button class="addMore" title = "Find the directions to a car park by copying the Location and pasting it onto the destination on the map">?</button>
   </div>
+
+  <!-- Result outputted onto the table -->
+  <h3>Nearest car parks</h3>
   <table id = "result" style= "width: 100%">
+    <!-- Table Headers -->
     <tr>
       <th>Car Park ID</th>
       <th>Development</th>
@@ -98,22 +120,19 @@
   </table>
 
 
-  <!-- Mapbox -->
-  
+  <!-- Mapbox map -->
   <div id='map' style='width: 50wh; height: 100vh;'></div>
   
-  
 
-  
-  
-  
-  
   </section>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
   </body>
 </html>
