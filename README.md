@@ -40,8 +40,8 @@ The design of the website is clear cut and simple, and the color scheme is kept 
 The website is similar to google maps, but more centralized around parking, where users can access car park information from all around Singapore, and get directions from point a to point b.
 
 
-### Link to repl.it
-[repl.it](https://assignment2.mingfeng.repl.co/)
+### Link to Github Pages
+[github page](https://tangmf.github.io/Assignment2/)
 ### Link to wireframe
 [wireframe](https://github.com/tangmf/Assignment2/blob/main/Assignment2wireframe.pdf)
 
