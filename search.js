@@ -10,6 +10,12 @@ var settings = {
   
   $(document).ready(function () {
     $("#loading").hide();
+    $("#settings-bar").hide();
+  
+    $("#form-toggle").click(function () {
+        $("#settings-bar").toggle();
+      })
+  
     search();
     $("#btn").click(function () {
       search();
@@ -17,7 +23,7 @@ var settings = {
   })
   
   function search() {
-    $("#loading").toggle();
+    $("#loading").show();
     $.ajax(settings).done(function (response) {
   
       let data = response
@@ -66,7 +72,7 @@ var settings = {
       if (found == false) {
         $("#search").append("<tr><td>No results</td></tr>")
       }
-    $("#loading").toggle();
+    $("#loading").hide();
     })
     
   }
