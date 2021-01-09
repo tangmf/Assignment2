@@ -24,8 +24,8 @@
 <body>
 
   <!-- Nav bar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">EasyMap</a>
+	<nav style = "position: sticky;z-index: 3;" class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">EasyMap</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,12 +49,16 @@
   </nav>
 
   <section>
-    <h1 class = "title">Search by development</h1>
+    <h1 class = "title">Search</h1>
 
     <label>Enter keywords</label>
   <input type = "text" id = "input">
   <button id = "btn">Search</button>
+  <button id = "form-toggle">More options</button>
+  
   <!-- Lot type settings -->
+  <div id = "settings-bar">
+  <form>
       <h3>Lot Types:</h3>
       <div id = "lottype-settings">
         <div>
@@ -84,9 +88,11 @@
       </div>
       <div>
         <input type="radio" id="available" name="availability" value="available" checked>
-        <label for="availabile">Available lots only</label><br>
+        <label for="available">Available lots only</label><br>
       </div> 
       </div>
+  </form>
+  </div>
   <h3 id = "loading">Loading...</h3>
 
   <table id = "search" style= "width: 100%">

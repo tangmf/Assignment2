@@ -12,7 +12,6 @@
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 
-    <!-- mapscript-->
   <script src = "mapscript.js" defer></script>
 
 	<!-- Mapbox -->
@@ -35,9 +34,10 @@
 
 <body>
 
+
   <!-- Nav bar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">EasyMap</a>
+	<nav style = "position: sticky;z-index: 3;" class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">EasyMap</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -58,9 +58,12 @@
       
     </div>
   </nav>
-
+  <section>
+  <p id = "notice">Please allow location access for the site</p>
     <!-- Mapbox -->
   <div id='map' style='width: 100wh; height: 90vh;'></div>
+  </section>
+  
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
