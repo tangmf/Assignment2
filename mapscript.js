@@ -6,7 +6,8 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
   })
 
 function successLocation(position) {
-  console.log(position)
+  /* Hide notice when location is found */
+  $("#notice").hide();
   setupMap([position.coords.longitude, position.coords.latitude]);
   
 
@@ -30,11 +31,9 @@ function setupMap(center) {
 
   map.addControl(directions, 'top-left');
 
-  var marker = new mapboxgl.Marker()
+  var marker = new mapboxgl.Marker({color: 'red'})
 .setLngLat(center)
 .addTo(map);
-
-
 
 }
 
