@@ -38,8 +38,8 @@
 <body>
 
 	<!-- Nav bar -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">EasyMap</a>
+	<nav style = "position: sticky;z-index: 3;" class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="index.html">EasyMap</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -64,20 +64,21 @@
 
   <section>
   <h1 class = "title">Find Parking</h1>
-  <button id = "form-toggle">Options</button>
+  <p id = "notice">Please allow location access for the site</p>
+  <button id = "form-toggle">More options</button>
 
   <div id = "settings-bar">
   <form>
       <!-- Range settings -->
       <div id = "range-settings">
-        <h3>Range:</h3>
-        <h4 id = "output"></h4>
+        <h3>Range</h3>
         <input type="range" id="range" name="range" min="1" max="5">
+        <label id = "output"for="range">range</label>
       </div>
 
       <!-- Lot type settings -->
       <div id = "lottype-settings">
-        <h3>Lot Types:</h3>
+        <h3>Lot Types</h3>
         <div>
           <input type="checkbox" id="c" name="lottype" value="c" checked>
           <label for="c">C</label><br>
@@ -115,19 +116,11 @@
   
   </div>
 
-  
-
-  <div id = "currentlocation">
-    <h3>Current Location: </h3>
-    <h3 id = "currentlong">longtitude</h3>
-    <h3> , </h3>
-    <h3 id = "currentlat">latitude</h3>
-  </div>
-
   <!-- Loading -->
   <h3 id = "loading">Loading...</h3>
   <!-- Result outputted onto the table -->
   <h3>Nearest car parks</h3>
+  <p id = "output-count"></p>
   <table id = "result" style= "width: 100%">
     <!-- Table Headers -->
     <tr>
@@ -138,6 +131,13 @@
       <th>Location</th>
     </tr>
   </table>
+
+  <div id = "currentlocation">
+    <h3>Current Location: </h3>
+    <h3 id = "currentlong">longtitude</h3>
+    <h3> , </h3>
+    <h3 id = "currentlat">latitude</h3>
+  </div>
   <!-- Mapbox map -->
   <div id='map' style='width: 50wh; height: 100vh;'></div>
   

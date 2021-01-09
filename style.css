@@ -1,25 +1,42 @@
-
-.title{
+nav{
+    top: 0;
+  
+  }
+  
+  
+  .title{
     font-family:  Arial, Helvetica, sans-serif;
   }
-  .footer {
-     position: fixed;
-     left: 0;
-     bottom: 0;
-     width: 100%;
-     background-color: red;
-     color: white;
-     text-align: center;
-     z-index: 2;
+  
+  #notice{
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
   
+  #settings-bar{
+    background-color: #ddd;
+    border: 1px solid black;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    padding: 3% 3%;
+  }
   .toggle-footer-closed{
     position: fixed;
     bottom: 0;
   
   }
   
+  #map{
+    border: 1px solid black;
+    border-radius: 4px;
+  }
+  
+  #popup{
+    font-size: 80%;
+    padding: 1% 1%;
+  }
   .marker {
     background-image: url('mapbox-icon.png');
     background-size: cover;
@@ -28,10 +45,7 @@
     border-radius: 50%;
     cursor: pointer;
   }
-  #top-section{
-    display: flex;
-    flex-direction: row;
-  }
+  
   #currentlocation{
     display: flex;
     flex-direction: row;
@@ -60,14 +74,7 @@
     margin-top: 200px;
   }
   
-  .addMore{
   
-    border: none;
-    width: 32px;
-    height: 32px;
-    background-color: #eee;
-    cursor: pointer;
-  }
   .addMore:hover{
     border: 1px solid #888;
     background-color: #ddd;

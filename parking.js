@@ -19,7 +19,7 @@ var settings = {
     /* Hide Loading text on ready*/
     $("#loading").hide();
     $("#toggle-footer-closed").hide();
-    $("form").hide();
+    $("#settings-bar").hide();
   
     /* Start searching for closest car parks */
     start();
@@ -32,7 +32,7 @@ var settings = {
       })
   
       $("#form-toggle").click(function () {
-        $("form").toggle();
+        $("#settings-bar").toggle();
       })
   
       $("#search").click(function () {
@@ -97,8 +97,8 @@ var settings = {
         availability = 0;
       }
   
-  
-  
+      /* Count for number of carparks outputted */
+      let count = 0;
       /* Loop through all carparks in API to find carparks based on users input*/
       var i;
       /* found variable is to let me know if there is an output based on the users input. If there is no output, tell user that there are no results. */
@@ -110,15 +110,13 @@ var settings = {
         let lat = location[0];
         let long = location[1];
   
-        
-  
-  
         /* Get input from range=settings slider */
         let range = output.innerHTML;
         /* deg variable, which is the lng lat range to find nearest carparks */
         let deg = range.split(" ")[0] / 100;
         /* Finding for car parks that meet the criteria */
         if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg && typelist.includes(data.value[i].LotType ) && data.value[i].AvailableLots > availability) { 
+          count += 1;
           /* Display the car parks that meet criteria */
           $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>")
           /* When there are carparks that meet criteria, so no need to tell user that there are no results */
@@ -144,8 +142,10 @@ var settings = {
   
         /* Loading is over, loading text is hidden */
       $("#loading").hide();
+      $("#output-count").text("Results: " + `${count}`);
   
     })
+    
   }
   
   
@@ -153,6 +153,7 @@ var settings = {
   /* ----------------------------- MAPBOX FUNCTIONS ---------------------------- */
   function successLocation(position) {
     setupMap([position.coords.longitude, position.coords.latitude]);
+    $("#notice").hide();
   
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
@@ -193,7 +194,7 @@ var settings = {
       storedLocations[i] = storedLocations[i].split(" ")
       var popup = new mapboxgl.Popup()
         .setLngLat([storedLocations[i][1], storedLocations[i][0]])
-        .setHTML(`<h3>${storedLocations[i][2]}</h3><p style=\"text-align: Left;\"><u>Location:</u>${storedLocations[i][1]},${storedLocations[i][0]}<br><u>LotType:</u> ${storedLocations[i][3]}<br><u>Available Lots:</u> ${storedLocations[i][4]}`)
+        .setHTML(`<div id = "popup"><h3>${storedLocations[i][2]}</h3><p style=\"text-align: Left;\"><u>Location:</u>${storedLocations[i][1]},${storedLocations[i][0]}<br><u>LotType:</u> ${storedLocations[i][3]}<br><u>Available Lots:</u> ${storedLocations[i][4]}</div>`)
         .addTo(map);
       var marker = new mapboxgl.Marker()
         .setLngLat([storedLocations[i][1], storedLocations[i][0]])
