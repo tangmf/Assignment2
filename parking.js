@@ -18,9 +18,11 @@ var settings = {
   $(document).ready(function () {
     /* Hide Loading text on ready*/
     $("#loading").hide();
+    $("#toggle-footer-closed").hide();
   
     /* Start searching for closest car parks */
     start();
+  
   
     /* Display car parks and locations on map */
     navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
@@ -29,6 +31,7 @@ var settings = {
       })
   
   });
+  
   
   function start() {
     /* When searching starts, loading text will be shown */
@@ -52,12 +55,18 @@ var settings = {
         start();
   
       }
+  
+      document.getElementById("availability-settings").oninput = function () {
+        start();
+      }
+  
+      /* list to store info of carparks that meet all the criteria. */
       var locationlist = []
+      
+  
+      
+      /* lottype list. Only checked lottypes will be displayed. When lottype is checked, it is added to typelist. In the for loop, if the carpark's lottype is in the list, and meets the other criteria, it will be outputted. */
       var typelist = []
-  
-      var i;
-      var found = false;
-  
       if (document.getElementById("c").checked) {
         typelist.push("C");
       }
@@ -70,54 +79,59 @@ var settings = {
       if (document.getElementById("h").checked) {
         typelist.push("H");
       }
+  
+      /* Availability settings */
+      var availability;
+      if (document.getElementById("all").checked){
+        availability = -1;
+      }
+      else if (document.getElementById("available").checked){
+        availability = 0;
+      }
+  
+  
+  
+      /* Loop through all carparks in API to find carparks based on users input*/
+      var i;
+      /* found variable is to let me know if there is an output based on the users input. If there is no output, tell user that there are no results. */
+      var found = false;
       for (i = 0; i < data.value.length; i++) {
+        /* Split location into long and lat */
         let location = data.value[i].Location
         location = location.split(" ");
         let lat = location[0];
         let long = location[1];
   
-        let range = output.innerHTML;
-        let deg = range.split(" ")[0] / 100;
-  
-  
-  
-  
+        
         var lottype = document.getElementById("lottype-settings");
         lottype.oninput = function () {
           start();
-  
-  
-  
-  
         }
   
-  
-        if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg && typelist.includes(data.value[i].LotType)) {
-  
+        /* Get input from range=settings slider */
+        let range = output.innerHTML;
+        /* deg variable, which is the lng lat range to find nearest carparks */
+        let deg = range.split(" ")[0] / 100;
+        /* Finding for car parks that meet the criteria */
+        if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg && typelist.includes(data.value[i].LotType ) && data.value[i].AvailableLots > availability) { 
+          /* Display the car parks that meet criteria */
           $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>")
+          /* When there are carparks that meet criteria, so no need to tell user that there are no results */
           found = true;
-  
-  
+          /* Add carpark that meets criteria to list to be put into localstorage and used by mapbox api */
           locationlist.push(data.value[i].Location + " " + data.value[i].CarParkID + " " + data.value[i].LotType + " " + data.value[i].AvailableLots)
-  
-  
-  
-  
         }
-  
-  
-  
-  
       }
+      /* No results meet criteria */
       if (found == false) {
         $("#result").append("<tr><td>No carparks nearby</td></tr>")
-  
       }
-  
+      /* Reset the list */
       var typelist = []
-  
-  
+      /* Save carpark informations to local storage to be accessed by mapbox api */
       localStorage.setItem("locations", JSON.stringify(locationlist));
+  
+      /* Setup the map with data from localstorage */
       navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
         {
           enableHighAccuracy: true
@@ -131,7 +145,7 @@ var settings = {
   
   
   
-  
+  /* ----------------------------- MAPBOX FUNCTIONS ---------------------------- */
   function successLocation(position) {
     setupMap([position.coords.longitude, position.coords.latitude]);
   

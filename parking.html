@@ -5,30 +5,31 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="normalize.css" rel="stylesheet" type="text/css" />
+	<link href="normalize.css" rel="stylesheet" type="text/css" />
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
-  
-
-	<script src='parking.js' defer></script>
 
 
-  <!-- Mapbox -->
+	<script src='parking.js' defer>
+
+	</script>
+
+
+	<!-- Mapbox -->
 	<script src='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'>
 
 	</script>
 	<link href='https://api.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
 
 
-  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
-  <link
-  rel="stylesheet"
-  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
-  type="text/css"
-  />
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js">
+
+	</script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+	 type="text/css" />
 
 
 	<title>EasyMap</title>
@@ -36,7 +37,7 @@
 
 <body>
 
-  <!-- Nav bar -->
+	<!-- Nav bar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#">EasyMap</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,52 +61,64 @@
       
     </div>
   </nav>
+
   <section>
   <h1 class = "title">Find Parking</h1>
+
+
+  <form id = "info">
+      <!-- Range settings -->
+      <div id = "range-settings">
+        <h3>Range:</h3>
+        <h4 id = "output"></h4>
+        <input type="range" id="range" name="range" min="1" max="5">
+      </div>
+
+      <!-- Lot type settings -->
+      <h3>Lot Types:</h3>
+      <div id = "lottype-settings">
+        <div>
+          <input type="checkbox" id="c" name="lottype" value="c" checked>
+          <label for="c">C</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="y" name="lottype" value="y" checked>
+          <label for="y">Y</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="h" name="lottype" value="h" checked>
+          <label for="h">H</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="l" name="lottype" value="l" checked>
+          <label for="l">L</label><br>
+        </div>
+      </div>
+
+      <!-- Availability settings -->
+      <h3>Availability</h3>
+      <div id = "availability-settings">
+        <div>
+        <input type="radio" id="all" name="availability" value="all">
+        <label for="all">All</label><br>
+      </div>
+      <div>
+        <input type="radio" id="available" name="availability" value="available" checked>
+        <label for="availabile">Available lots only</label><br>
+      </div> 
+      </div>
+
+  </form>
 
   <div id = "currentlocation">
     <h3>Current Location: </h3>
     <h3 id = "currentlong">longtitude</h3>
     <h3> , </h3>
     <h3 id = "currentlat">latitude</h3>
-    
-  </div>
-  
-  <div id = "info">
-      <!-- Range settings -->
-      <div id = "range-settings">
-        <h3>Range:<input type="range" id="range" name="range" min="1" max="5"</h3>
-        <h4 id = "output"></h4>
-      </div>
-
-      <!-- Lot type settings -->
-      <h3>Lot Types:</h3>
-      <div id = "lottype-settings">
-        <h4>C<input type = "checkbox" value = "c" id = "c" checked></h4>
-        <h4>Y<input type = "checkbox" value = "y" id = "y" checked></h4>
-        <h4>H<input type = "checkbox" value = "h" id = "h" checked></h4>
-        <h4>L<input type = "checkbox" value = "l" id = "l" checked></h4>
-      </div>
-
-      <!-- Availability settings -->
-      <h3>Status</h3>
-      <div id = "availability-settings">
-        <h4>All<input type = "radio" name = "availability" id = "all-availability" value = "all" checked></h4>
-        <h4>Available<input type = "radio" name = "availability" id = "available-availability" value = "available"></h4>
-      </div>
-
-
-      <!-- Search button -->
-      <button id = "search">Search</button>
-
-      <!-- Loading -->
-      <h3 id = "loading">Loading...</h3>
-
-
-      <!-- Help button -->
-      <button class="addMore" title = "Find the directions to a car park by copying the Location and pasting it onto the destination on the map">?</button>
   </div>
 
+  <!-- Loading -->
+  <h3 id = "loading">Loading...</h3>
   <!-- Result outputted onto the table -->
   <h3>Nearest car parks</h3>
   <table id = "result" style= "width: 100%">
@@ -118,14 +131,15 @@
       <th>Location</th>
     </tr>
   </table>
-
-
   <!-- Mapbox map -->
   <div id='map' style='width: 50wh; height: 100vh;'></div>
+
+  
+
+    
   
 
   </section>
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
