@@ -54,6 +54,39 @@
     <label>Enter keywords</label>
   <input type = "text" id = "input">
   <button id = "btn">Search</button>
+  <!-- Lot type settings -->
+      <h3>Lot Types:</h3>
+      <div id = "lottype-settings">
+        <div>
+          <input type="checkbox" id="c" name="lottype" value="c" checked>
+          <label for="c">C</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="y" name="lottype" value="y" checked>
+          <label for="y">Y</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="h" name="lottype" value="h" checked>
+          <label for="h">H</label><br>
+        </div>
+        <div>
+          <input type="checkbox" id="l" name="lottype" value="l" checked>
+          <label for="l">L</label><br>
+        </div>
+      </div>
+
+      <!-- Availability settings -->
+      <h3>Availability</h3>
+      <div id = "availability-settings">
+        <div>
+        <input type="radio" id="all" name="availability" value="all">
+        <label for="all">All</label><br>
+      </div>
+      <div>
+        <input type="radio" id="available" name="availability" value="available" checked>
+        <label for="availabile">Available lots only</label><br>
+      </div> 
+      </div>
   <h3 id = "loading">Loading...</h3>
 
   <table id = "search" style= "width: 100%">
