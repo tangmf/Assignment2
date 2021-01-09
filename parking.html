@@ -64,9 +64,10 @@
 
   <section>
   <h1 class = "title">Find Parking</h1>
+  <button id = "form-toggle">Options</button>
 
-
-  <form id = "info">
+  <div id = "settings-bar">
+  <form>
       <!-- Range settings -->
       <div id = "range-settings">
         <h3>Range:</h3>
@@ -75,8 +76,8 @@
       </div>
 
       <!-- Lot type settings -->
-      <h3>Lot Types:</h3>
       <div id = "lottype-settings">
+        <h3>Lot Types:</h3>
         <div>
           <input type="checkbox" id="c" name="lottype" value="c" checked>
           <label for="c">C</label><br>
@@ -96,19 +97,25 @@
       </div>
 
       <!-- Availability settings -->
-      <h3>Availability</h3>
       <div id = "availability-settings">
+        <h3>Availability</h3>
         <div>
         <input type="radio" id="all" name="availability" value="all">
         <label for="all">All</label><br>
       </div>
       <div>
         <input type="radio" id="available" name="availability" value="available" checked>
-        <label for="availabile">Available lots only</label><br>
+        <label for="available">Available lots only</label><br>
       </div> 
       </div>
 
+      
+    <button id = "search" type = "submit">Search</button>
   </form>
+  
+  </div>
+
+  
 
   <div id = "currentlocation">
     <h3>Current Location: </h3>
@@ -133,6 +140,7 @@
   </table>
   <!-- Mapbox map -->
   <div id='map' style='width: 50wh; height: 100vh;'></div>
+  
 
   
 

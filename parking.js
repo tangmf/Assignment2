@@ -19,6 +19,7 @@ var settings = {
     /* Hide Loading text on ready*/
     $("#loading").hide();
     $("#toggle-footer-closed").hide();
+    $("form").hide();
   
     /* Start searching for closest car parks */
     start();
@@ -30,12 +31,30 @@ var settings = {
         enableHighAccuracy: true
       })
   
+      $("#form-toggle").click(function () {
+        $("form").toggle();
+      })
+  
+      $("#search").click(function () {
+      event.preventDefault();
+      start();
+      })
+  
   });
   
   
   function start() {
     /* When searching starts, loading text will be shown */
-    $("#loading").toggle();
+    $("#loading").show();
+    var slider = document.getElementById("range");
+    var output = document.getElementById("output");
+    output.innerHTML = slider.value + " deg"; // Display the default slider value
+  
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+      output.innerHTML = this.value + " deg";
+  
+    }
   
   
     $.ajax(settings).done(function (response) {
@@ -45,20 +64,9 @@ var settings = {
       $("#result").empty()
       $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
   
-      var slider = document.getElementById("range");
-      var output = document.getElementById("output");
-      output.innerHTML = slider.value + " deg"; // Display the default slider value
+      
   
-      // Update the current slider value (each time you drag the slider handle)
-      slider.oninput = function () {
-        output.innerHTML = this.value + " deg";
-        start();
   
-      }
-  
-      document.getElementById("availability-settings").oninput = function () {
-        start();
-      }
   
       /* list to store info of carparks that meet all the criteria. */
       var locationlist = []
@@ -103,10 +111,7 @@ var settings = {
         let long = location[1];
   
         
-        var lottype = document.getElementById("lottype-settings");
-        lottype.oninput = function () {
-          start();
-        }
+  
   
         /* Get input from range=settings slider */
         let range = output.innerHTML;
@@ -138,7 +143,7 @@ var settings = {
         })
   
         /* Loading is over, loading text is hidden */
-      $("#loading").toggle();
+      $("#loading").hide();
   
     })
   }
