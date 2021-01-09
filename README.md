@@ -32,9 +32,12 @@ The website is catering for a place where drivers can access information about c
 
 ## [2] Design Process
 
-I signed up for an API account key for LTA DataMall and using Postman and saved the response into "response.js". 
-With the response, I could access the locations of the car parks in Singapore. Together with the mapbox api that determines the user's current location, the website will display all car parks within a certain area close to the current location.
+I signed up for an API account key for LTA DataMall and using Postman and learnt how to read from the API using jquery ajax. I then could have the information of the car park availability be correct and up to date.
+With this, I could access the locations of the car parks in Singapore. Together with the mapbox api that determines the user's current location, the website will display all car parks within a certain area close to the current location.
+
+
 To add more use to the website, I added a search function, which takes in an input from the user and outputs all car parks with the input in the name. e.g. input is "Yishun", so all car parks with yishun in the name will be outputed onto a table.
+In addition, the user can select the specific carparks that will be outputted, and can customize the range, lot type, and availability of the search function to better suit their needs.
 The design of the website is clear cut and simple, and the color scheme is kept tame, which makes using the web application less confusing.
 
 The website is similar to google maps, but more centralized around parking, where users can access car park information from all around Singapore, and get directions from point a to point b.
@@ -56,7 +59,7 @@ The website is similar to google maps, but more centralized around parking, wher
 ## [3] Features
 
 ### All pages
-* All pages have a responsive navigation bar made using bootstrap.
+* All pages have a responsive navigation bar made using bootstrap that is set to the top of the screen.
 * All pages are responsive.
 
 ### Map page (index.html)
@@ -66,22 +69,18 @@ This page is where the user can find directions from point a to point b.
 * allows user to input a starting point and destination. The map can then generate directions from one point to the other.
 
 ### Find parking page (parking.html)
-This page is where car drivers can find out the nearest car parks, and the information about them. Using the location outputed on the table, they can copy it and paste on the map destination, where the website can then generate directions to the car park.
+This page is where car drivers can find out the nearest car parks, and the information about them. Using the location outputed on the table, they can copy it and paste on the map destination, where the website can then generate directions to the car park. In addition, the user can customize the range, lot type, and availability of the search function to better suit their needs.
 * mapbox helps to get the user's current location
 * map showing the current location via a marker, which makes it easy for the user to identify where they are
 * using the current location, the website can find nearest car parks and arrange them in table form
+* options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
+* the carparks that are outputted are also displayed on the mapbox map, along with their carpark id, location, lot type and lot availability.
 
 ### Search page (search.html)
-This page is where users can find out information like carpark id, development, lot type, lot availability and location (in longitude,latitude) about car parks all over Singapore. The search function is not case sensitive.
+This page is where users can find out information like carpark id, development, lot type, lot availability and location (in longitude,latitude) about car parks all over Singapore. The search function is not case sensitive. In addition, the user can customize the range, lot type, and availability of the search function to better suit their needs.
 * user can search for car park by development by input
 * e.g. enter in "yishun" and all car parks with yishun in their name will be displayed on a table.
-
-### Features to implement
-* have the user be able to control the radius of the nearest car parks
-* have the user be able to control the table output (user can choose to only have car parks with lot type "C" outputed etc.)
-* dark mode for all pages. The button can be put at the top right
-* give markers to the nearby car parks to make it easier to see which car park is nearer. This also enhances user experience
-* have the website guess the users current location using mapbox geocoding
+* options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
 
 ## [4] Technologies used
 * html 
