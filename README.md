@@ -8,8 +8,9 @@ Note: derpsnow is also my account which is signed in on visual studio code
 - [1] Purpose
 - [2] Design Process
 - [3] Features
-- [4] Technologies used
-- [5] Credits
+- [4] Testing
+- [5] Technologies used
+- [6] Credits
 
       
 ## [1] Purpose
@@ -82,7 +83,23 @@ This page is where users can find out information like carpark id, development, 
 * e.g. enter in "yishun" and all car parks with yishun in their name will be displayed on a table.
 * options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
 
-## [4] Technologies used
+## [4] Testing
+1. Find out directions from Map
+- i. Go to "Map" page (homepage)
+- ii. User needs to allow site to access location. If the website does not have access to the location, there will be a message.
+- iii. Mapbox map is displayed, where user can input 2 locations, starting point and destination.
+- iv. When the 2 locations are entered and confirmed, mapbox api generates route. Directions will be displayed on the right.
+
+2. Find nearest carparks
+- i. Go to "Find parking page" via navbar
+- ii. User needs to allow site to access location. If the website does not have access to the location, there will be a message.
+- iii. Table of nearest carparks should be generated, along with a mapbox map with current location marked, and nearby carparks marked, with popups of each carpark.
+- iv. User can press "More options" button, which will show a bunch of settings for the user to change; range, lot type and lot availability
+- v. Upon pressing "Search", table and map will generate new set of nearby carparks according to what the user had specified in the "More options" section.
+- vi. If website is trying to access API, loading text will be shown. Loading text disappears after accessing API and displaying the new output.
+
+
+## [5] Technologies used
 * html 
 * css
 * javascript
@@ -92,7 +109,7 @@ This page is where users can find out information like carpark id, development, 
 * LTA DataMall api
 * postman
 
-## [5] Credits
+## [6] Credits
 
 ### Acknowledgements
 * LTA DataMall Api: https://www.mytransport.sg/content/mytransport/home/dataMall.html, https://www.mytransport.sg/content/dam/datamall/datasets/LTA_DataMall_API_User_Guide.pdf
