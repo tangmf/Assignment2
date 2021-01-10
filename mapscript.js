@@ -1,5 +1,7 @@
+/* Map settings */
 mapboxgl.accessToken = 'pk.eyJ1IjoidGFuZ21pbmdmZW5nIiwiYSI6ImNrajQyazEwYzBpeWkyemxseDB6MXk2d24ifQ.I36uKUemWbTsCzrKk_SmHQ';
 
+/* get current position, setup map when successful */
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
   {
     enableHighAccuracy: true
@@ -23,14 +25,18 @@ function setupMap(center) {
     zoom: 15
   })
   const nav = new mapboxgl.NavigationControl();
+  
+  /* Add navigation */
   map.addControl(nav);
 
+  /* Add directions */
   var directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken
   })
 
   map.addControl(directions, 'top-left');
 
+  /* Current location marker */
   var marker = new mapboxgl.Marker({color: 'red'})
 .setLngLat(center)
 .addTo(map);

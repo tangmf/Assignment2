@@ -63,89 +63,98 @@
   </nav>
 
   <section>
-  <h1 class = "title">Find Parking</h1>
-  <p id = "notice">Please allow location access for the site</p>
-  <button id = "form-toggle">More options</button>
 
-  <div id = "settings-bar">
-  <form>
-      <!-- Range settings -->
-      <div id = "range-settings">
-        <h3>Range</h3>
-        <input type="range" id="range" name="range" min="1" max="5">
-        <label id = "output"for="range">range</label>
-      </div>
+    <!-- Title and settings icon -->
+    <div class = "row-container">
+      <h1 class = "title">Find Parking</h1>
+    
+    <!-- options toggle button -->
+    <button id = "form-toggle"><img id = "settings-icon" alt = "settings-icon" src = "Images/settings.png"></button>
+    </div>
+    <p id = "notice">Please allow location access for the site</p>
 
-      <!-- Lot type settings -->
-      <div id = "lottype-settings">
-        <h3>Lot Types</h3>
-        <div>
-          <input type="checkbox" id="c" name="lottype" value="c" checked>
-          <label for="c">C</label><br>
+    <!-- settings contents -->
+    <div id = "settings-bar">
+    <form>
+      <h2>Options</h2>
+      <hr>
+        <!-- Range settings -->
+        <div id = "range-settings">
+          <h3>Range</h3>
+          <input type="range" id="range" name="range" min="1" max="5">
+          <label id = "output"for="range">range</label>
+        </div>
+
+        <!-- Lot type settings -->
+        <div id = "lottype-settings">
+          <h3>Lot Types</h3>
+          <div>
+            <input type="checkbox" id="c" name="lottype" value="c" checked>
+            <label for="c">C</label><br>
+          </div>
+          <div>
+            <input type="checkbox" id="y" name="lottype" value="y" checked>
+            <label for="y">Y</label><br>
+          </div>
+          <div>
+            <input type="checkbox" id="h" name="lottype" value="h" checked>
+            <label for="h">H</label><br>
+          </div>
+          <div>
+            <input type="checkbox" id="l" name="lottype" value="l" checked>
+            <label for="l">L</label><br>
+          </div>
+        </div>
+
+        <!-- Availability settings -->
+        <div id = "availability-settings">
+          <h3>Availability</h3>
+          <div>
+          <input type="radio" id="all" name="availability" value="all">
+          <label for="all">All</label><br>
         </div>
         <div>
-          <input type="checkbox" id="y" name="lottype" value="y" checked>
-          <label for="y">Y</label><br>
+          <input type="radio" id="available" name="availability" value="available" checked>
+          <label for="available">Available lots only</label><br>
+        </div> 
         </div>
-        <div>
-          <input type="checkbox" id="h" name="lottype" value="h" checked>
-          <label for="h">H</label><br>
-        </div>
-        <div>
-          <input type="checkbox" id="l" name="lottype" value="l" checked>
-          <label for="l">L</label><br>
-        </div>
-      </div>
 
-      <!-- Availability settings -->
-      <div id = "availability-settings">
-        <h3>Availability</h3>
-        <div>
-        <input type="radio" id="all" name="availability" value="all">
-        <label for="all">All</label><br>
-      </div>
-      <div>
-        <input type="radio" id="available" name="availability" value="available" checked>
-        <label for="available">Available lots only</label><br>
-      </div> 
-      </div>
+        
+      <button id = "search" type = "submit">Search</button>
+    </form>
+    
+    </div>
 
-      
-    <button id = "search" type = "submit">Search</button>
-  </form>
-  
-  </div>
+    <!-- Loading -->
+    <h3 id = "loading">Loading...</h3>
+    <!-- Result outputted onto the table -->
+    
+    <p id = "output-count"></p>
+    <table id = "result" style= "width: 100%">
+      <!-- Table Headers -->
+      <tr>
+        <th>Car Park ID</th>
+        <th>Development</th>
+        <th>Lot type</th>
+        <th>Available lots</th>
+        <th>Location</th>
+      </tr>
+    </table>
 
-  <!-- Loading -->
-  <h3 id = "loading">Loading...</h3>
-  <!-- Result outputted onto the table -->
-  <h3>Nearest car parks</h3>
-  <p id = "output-count"></p>
-  <table id = "result" style= "width: 100%">
-    <!-- Table Headers -->
-    <tr>
-      <th>Car Park ID</th>
-      <th>Development</th>
-      <th>Lot type</th>
-      <th>Available lots</th>
-      <th>Location</th>
-    </tr>
-  </table>
-
-  <div id = "currentlocation">
-    <h3>Current Location: </h3>
-    <h3 id = "currentlong">longtitude</h3>
-    <h3> , </h3>
-    <h3 id = "currentlat">latitude</h3>
-  </div>
-  <!-- Mapbox map -->
-  <div id='map' style='width: 50wh; height: 100vh;'></div>
-  
-
-  
+    <div id = "currentlocation">
+      <h3>Current Location: </h3>
+      <h3 id = "currentlong">longtitude</h3>
+      <h3> , </h3>
+      <h3 id = "currentlat">latitude</h3>
+    </div>
+    <!-- Mapbox map -->
+    <div id='map' style='width: 50wh; height: 100vh;'></div>
+    
 
     
-  
+
+      
+    
 
   </section>
 
