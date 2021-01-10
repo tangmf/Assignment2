@@ -82,7 +82,7 @@
         <div id = "range-settings">
           <h3>Range</h3>
           <input type="range" id="range" name="range" min="1" max="5">
-          <label id = "output"for="range">range</label>
+          <label id = "output" for="range">range</label>
         </div>
 
         <!-- Lot type settings -->
@@ -142,27 +142,18 @@
         <th>Location</th>
       </tr>
     </table>
-
+    
+    <!-- Current location display -->
+    <h4>Current Location: </h4>
     <div id = "currentlocation">
-      <h3>Current Location: </h3>
-      <h3 id = "currentlong">longtitude</h3>
-      <h3> , </h3>
-      <h3 id = "currentlat">latitude</h3>
+      <p id = "currentlong">longtitude</p>
+      <p> , </p>
+      <p id = "currentlat">latitude</p>
     </div>
 
-  </section>
-  <section>
     <!-- Mapbox map -->
-    <div id='map' style='width: 50wh; height: 100vh;'></div>
+    <div id='map' style= 'height: 100vh;'></div>
     </section>
-    
-
-    
-
-      
-    
-
-  </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -37,8 +37,8 @@ nav{
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
   
   #search:hover {background-color: #3e8e41}
@@ -70,7 +70,6 @@ nav{
     display: flex;
     flex-direction: row;
     padding: 3% 3%;
-    margin-bottom: 1%;
   }
   
   #lottype-settings, #availability-settings{
@@ -103,6 +102,8 @@ nav{
   
   section{
     padding: 3% 3%;
+    padding-bottom: 1%;
+    padding-top: 1%;
   }
   
   
