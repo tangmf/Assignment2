@@ -5,6 +5,7 @@
 Note: derpsnow is also my account which is signed in on visual studio code
 ### Link to Github Pages
 * [github page](https://tangmf.github.io/Assignment2/)
+* [demo video](https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be)
 
 ## Table of Contents
 - [1] Purpose
@@ -109,7 +110,8 @@ This page is where users can find out information like carpark id, development, 
 - iv. After customizing search, click "Search" button
 - v. Loading text pops up. After loading (accessing the API), results are outputted on the table.
 
-
+### Demo video
+* (https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be)
 
 ## [5] Technologies used
 * html 
