@@ -27,16 +27,16 @@ var settings = {
     navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
       {
         enableHighAccuracy: true
-      })
+      });
   
       $("#form-toggle").click(function () {
         $("#settings-bar").toggle();
-      })
+      });
   
       $("#search").click(function () {
       event.preventDefault();
       start();
-      })
+      });
   
   });
   
@@ -51,19 +51,19 @@ var settings = {
     // Update the current slider value (each time you drag the slider handle)
     slider.oninput = function () {
       output.innerHTML = this.value + " degrees";
-    }
+    };
     $.ajax(settings).done(function (response) {
   
-      let data = response
+      let data = response;
   
-      $("#result").empty()
-      $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
+      $("#result").empty();
+      $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>');
   
       /* list to store info of carparks that meet all the criteria. */
-      var locationlist = []
+      var locationlist = [];
   
       /* lottype list. Only checked lottypes will be displayed. When lottype is checked, it is added to typelist. In the for loop, if the carpark's lottype is in the list, and meets the other criteria, it will be outputted. */
-      var typelist = []
+      var typelist = [];
       if (document.getElementById("c").checked) {
         typelist.push("C");
       }
@@ -94,7 +94,7 @@ var settings = {
       var found = false;
       for (i = 0; i < data.value.length; i++) {
         /* Split location into long and lat */
-        let location = data.value[i].Location
+        let location = data.value[i].Location;
         location = location.split(" ");
         let lat = location[0];
         let long = location[1];
@@ -107,19 +107,19 @@ var settings = {
         if (Math.abs(lat - parseFloat($("#currentlat").text())) <= deg && Math.abs(long - parseFloat($("#currentlong").text())) <= deg && typelist.includes(data.value[i].LotType ) && data.value[i].AvailableLots > availability) { 
           count += 1;
           /* Display the car parks that meet criteria */
-          $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>")
+          $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>");
           /* When there are carparks that meet criteria, so no need to tell user that there are no results */
           found = true;
           /* Add carpark that meets criteria to list to be put into localstorage and used by mapbox api */
-          locationlist.push(data.value[i].Location + " " + data.value[i].CarParkID + " " + data.value[i].LotType + " " + data.value[i].AvailableLots)
+          locationlist.push(data.value[i].Location + " " + data.value[i].CarParkID + " " + data.value[i].LotType + " " + data.value[i].AvailableLots);
         }
       }
       /* No results meet criteria */
-      if (found == false) {
-        $("#result").append("<tr><td>No carparks nearby</td></tr>")
+      if (found === false) {
+        $("#result").append("<tr><td>No carparks nearby</td></tr>");
       }
       /* Reset the list */
-      var typelist = []
+      typelist = [];
       /* Save carpark informations to local storage to be accessed by mapbox api */
       localStorage.setItem("locations", JSON.stringify(locationlist));
   
@@ -133,7 +133,7 @@ var settings = {
       $("#loading").hide();
       $("#output-count").text("Results: " + `${count}`);
   
-    })
+    });
     
   }
   
@@ -162,13 +162,13 @@ var settings = {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: center,
       zoom: 15
-    })
+    });
     const nav = new mapboxgl.NavigationControl();
     map.addControl(nav);
   
     var directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken
-    })
+    });
   
     map.addControl(directions, 'top-left');
   
@@ -182,7 +182,7 @@ var settings = {
     let i = 0;
     /* loop through carparks in localstorage */
     for (i = 0; i < storedLocations.length; i++) {
-      storedLocations[i] = storedLocations[i].split(" ")
+      storedLocations[i] = storedLocations[i].split(" ");
       /* Add popup */
       var popup = new mapboxgl.Popup()
         .setLngLat([storedLocations[i][1], storedLocations[i][0]])

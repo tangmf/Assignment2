@@ -5,7 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGFuZ21pbmdmZW5nIiwiYSI6ImNrajQyazEwYzBpeWkye
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation,
   {
     enableHighAccuracy: true
-  })
+  });
 
 function successLocation(position) {
   /* Hide notice when location is found */
@@ -23,7 +23,7 @@ function setupMap(center) {
     style: 'mapbox://styles/mapbox/streets-v11',
     center: center,
     zoom: 15
-  })
+  });
   const nav = new mapboxgl.NavigationControl();
   
   /* Add navigation */
@@ -32,7 +32,7 @@ function setupMap(center) {
   /* Add directions */
   var directions = new MapboxDirections({
     accessToken: mapboxgl.accessToken
-  })
+  });
 
   map.addControl(directions, 'top-left');
 

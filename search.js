@@ -18,14 +18,14 @@ var settings = {
     /* Dropdown toggle button */
     $("#form-toggle").click(function () {
         $("#settings-bar").toggle();
-      })
+      });
   
     /* Search button */
     search();
     $("#search").click(function () {
       search();
     });
-  })
+  });
   
   /* Search for carparks based on settings/options selected by user */
   function search() {
@@ -35,13 +35,13 @@ var settings = {
     /* Read from LTA DataMall API */
     $.ajax(settings).done(function (response) {
   
-      let data = response
+      let data = response;
       /* Reset table */
-      $("#result").empty()
-      $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>')
+      $("#result").empty();
+      $('#result').append('<tr><th>Car Park ID</th><th>Development</th><th>Lot type</th><th>Available lots</th><th>Location</th></tr>');
   
       /* List for the lot types. Only those in the list will be displayed*/
-      var typelist = []
+      var typelist = [];
       if (document.getElementById("c").checked) {
         typelist.push("C");
       }
@@ -69,7 +69,7 @@ var settings = {
       var found = false;
       for (i = 0; i < data.value.length; i++) {
         /* Split location into long and lat */
-        let location = data.value[i].Location
+        let location = data.value[i].Location;
         location = location.split(" ");
         let lat = location[0];
         let long = location[1];
@@ -77,17 +77,17 @@ var settings = {
         /* Make it so that the search function is not case sensitive */
         if (str.toLowerCase().includes($("#input").val().toLowerCase()) && typelist.includes(data.value[i].LotType ) && data.value[i].AvailableLots > availability) {
           /* append to table */
-          $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>")
+          $("#result").append("<tr><td>" + data.value[i].CarParkID + "</td><td>" + data.value[i].Development + "</td><td>" + data.value[i].LotType + "</td><td>" + data.value[i].AvailableLots + "</td><td>" + long + "," + lat + "</td></tr>");
           found = true;
         }
       }
       /* When there is no output (empty table), the user is informed. */
-      if (found == false) {
-        $("#result").append("<tr><td>No results</td></tr>")
+      if (found === false) {
+        $("#result").append("<tr><td>No results</td></tr>");
       }
       /* loading is finished, and output is successfully displayed */
     $("#loading").hide();
-    })
+    });
     
   }
   
