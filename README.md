@@ -5,7 +5,8 @@
 Note: derpsnow is also my account which is signed in on visual studio code
 ### Link to Github Pages
 * [github page](https://tangmf.github.io/Assignment2/)
-* [demo video](https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be)
+### Demo video
+* [video](https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be)
 
 ## Table of Contents
 - [1] Purpose
