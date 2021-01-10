@@ -2,9 +2,9 @@
 
 ### Tang Ming Feng S10185023E ID Assignment 2
 ### This is the documentation for my ID Assignment 2 website. The website is a map website that finds out directions from point a to point b and helps users find a place to park nearby based on their current location. The users will need to allow the website to access their current location in order for it to work.
+Note: derpsnow is also my account which is signed in on visual studio code
 ### Link to Github Pages
 * [github page](https://tangmf.github.io/Assignment2/)
-Note: derpsnow is also my account which is signed in on visual studio code
 
 ## Table of Contents
 - [1] Purpose
@@ -58,32 +58,32 @@ The website is similar to google maps, but more centralized around parking, wher
 ## [3] Features
 
 ### All pages
-* [link to wireframe](https://github.com/tangmf/Assignment2/tree/main/Wireframe)
 * All pages have a responsive navigation bar made using bootstrap that is set to the top of the screen.
 * All pages are responsive.
+* [link to wireframe](https://github.com/tangmf/Assignment2/tree/main/Wireframe)
 
 ### Map page (index.html)
-* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Index-wireframe.pdf)
 This page is where the user can find directions from point a to point b.
 * mapbox map of the whole world, where buildings, streets, roads can be identified.
 * navigation control on the map, which allows user to zoom in and out, and rotate about the axis.
 * allows user to input a starting point and destination. The map can then generate directions from one point to the other.
+* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Index-wireframe.pdf)
 
 ### Find parking page (parking.html)
-* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Find%20Parking-wireframe.pdf)
 This page is where car drivers can find out the nearest car parks, and the information about them. Using the location outputed on the table, they can copy it and paste on the map destination, where the website can then generate directions to the car park. In addition, the user can customize the range, lot type, and availability of the search function to better suit their needs.
 * mapbox helps to get the user's current location
 * map showing the current location via a marker, which makes it easy for the user to identify where they are
 * using the current location, the website can find nearest car parks and arrange them in table form
 * options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
 * the carparks that are outputted are also displayed on the mapbox map, along with their carpark id, location, lot type and lot availability.
+* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Find%20Parking-wireframe.pdf)
 
 ### Search page (search.html)
-* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Search-wireframe.pdf)
 This page is where users can find out information like carpark id, development, lot type, lot availability and location (in longitude,latitude) about car parks all over Singapore. The search function is not case sensitive. In addition, the user can customize the range, lot type, and availability of the search function to better suit their needs.
 * user can search for car park by development by input
 * e.g. enter in "yishun" and all car parks with yishun in their name will be displayed on a table.
 * options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
+* [link to wireframe](https://github.com/tangmf/Assignment2/blob/main/Wireframe/A2-Search-wireframe.pdf)
 
 ## [4] Testing
 
