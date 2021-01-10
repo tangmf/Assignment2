@@ -112,7 +112,7 @@ This page is where users can find out information like carpark id, development, 
 - v. Loading text pops up. After loading (accessing the API), results are outputted on the table.
 
 ### Demo video
-* (https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be)
+* https://www.youtube.com/watch?v=xGeLUCelZmw&feature=youtu.be
 
 ## [5] Technologies used
 * html 
