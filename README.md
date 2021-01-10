@@ -55,7 +55,8 @@ The website is similar to google maps, but more centralized around parking, wher
 
 * As a car driver, I need to find a place to park. Using the web application, I will allow the website to know my location, and from my location, the website will find out the nearest places to park. I can then copy the location of the car park I would like to park in, and paste it on the map as my destination. I can then click on my current location, which will generate a route between one location to the other. I can then have the directions to go to the car park.
 
-* As a car driver, I would like to find out information about car parks in Singapore. I can go the Search Page and enter in the keyword of the Car Park I want to find out about . The website will then show the details of the car park. The details include carpark id, development, lot type, lot availability and location (in longitude,latitude).
+* As a car driver, I would like to find out information about car parks in Singapore. I can go the Search Page and enter in the keyword of the Car Park I want to find out about . I can also click the settings button, which will dropdown a bunch of options I can customize. After selecting which types of carparks I am interested in, I can click the "Search" button. The website will then show the details of the car park. The details include carpark id, development, lot type, lot availability and location (in longitude,latitude).
+
 
 ## [3] Features
 
@@ -84,19 +85,29 @@ This page is where users can find out information like carpark id, development, 
 * options feature, where the user can customize the range, lot type, and availability of the search function to better suit their needs.
 
 ## [4] Testing
+
 1. Find out directions from Map
 - i. Go to "Map" page (homepage)
 - ii. User needs to allow site to access location. If the website does not have access to the location, there will be a message.
 - iii. Mapbox map is displayed, where user can input 2 locations, starting point and destination.
-- iv. When the 2 locations are entered and confirmed, mapbox api generates route. Directions will be displayed on the right.
+- iv. When the 2 locations are entered and confirmed, mapbox api generates route. Directions will be displayed on the left.
 
 2. Find nearest carparks
 - i. Go to "Find parking page" via navbar
 - ii. User needs to allow site to access location. If the website does not have access to the location, there will be a message.
 - iii. Table of nearest carparks should be generated, along with a mapbox map with current location marked, and nearby carparks marked, with popups of each carpark.
-- iv. User can press "More options" button, which will show a bunch of settings for the user to change; range, lot type and lot availability
-- v. Upon pressing "Search", table and map will generate new set of nearby carparks according to what the user had specified in the "More options" section.
+- iv. User can press settings button, which will show a bunch of settings for the user to change; range, lot type and lot availability
+- v. Upon pressing "Search", table and map will generate new set of nearby carparks according to what the user had specified in the "Options" section.
 - vi. If website is trying to access API, loading text will be shown. Loading text disappears after accessing API and displaying the new output.
+
+3. Search for carpark
+
+- i. Go to "Search" page via navbar
+- ii. Enter in keywords in textbox
+- iii. Click settings button to customize search
+- iv. After customizing search, click "Search" button
+- v. Loading text pops up. After loading (accessing the API), results are outputted on the table.
+
 
 
 ## [5] Technologies used
