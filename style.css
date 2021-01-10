@@ -129,9 +129,39 @@ nav{
   
   /* Responsive css */
   @media screen and (max-width: 800px) {
-    h1,h2,h3,h4 {
+    .title{
+        font-size: 90%;
+    }
+    h1,h2,h3,h4,p,label {
       font-size: 80%;
     }
+    #form-toggle{
+        background-color: white;
+        width: 30px;
+        height: 30px;
+        margin: 1%;
+      }
+    #settings-icon{
+        width: 15px;
+    }
+
+    #search {
+        padding: 2.5px 7.5px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 7.5px;
+        box-shadow: 0 4.5px #999;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+
+      table{
+        font-size: 60%;
+      }
   
   
     tr{
