@@ -140,6 +140,7 @@ var settings = {
   
   
   /* ----------------------------- MAPBOX FUNCTIONS ---------------------------- */
+  /* Most code obtained from https://www.youtube.com/watch?v=OySigNMXOZU */
   function successLocation(position) {
     setupMap([position.coords.longitude, position.coords.latitude]);
     $("#notice").hide();
